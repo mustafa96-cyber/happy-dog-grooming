@@ -1,0 +1,32 @@
+---
+import { addOns } from "../data/site";
+---
+<section id="addons" class="relative py-20 md:py-28 overflow-hidden grain">
+  <div class="blob blob-coral floaty" style="width:18rem;height:18rem;bottom:-4rem;left:-6rem;opacity:.2"></div>
+
+  <div class="wrap relative z-10">
+    <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+      <!-- pitch -->
+      <div class="lg:col-span-4 reveal">
+        <span class="eyebrow">Little extras</span>
+        <h2 class="mt-3 text-4xl md:text-5xl text-ink">Add a little<br class="hidden lg:block"/> extra pampering</h2>
+        <p class="mt-4 text-inksoft text-lg">Mix and match these on top of any bath or groom — just ask when you book and we'll add it to your pup's spa day.</p>
+        <a href="#book" class="mt-7 btn btn-coral btn-shine">Add to my booking</a>
+      </div>
+
+      <!-- add-on grid -->
+      <div class="lg:col-span-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3.5">
+          {addOns.map((a, i) => (
+            <div class="card p-4 flex flex-col items-start gap-2 reveal transition-transform duration-500 hover:-translate-y-1.5" data-delay={i * 45}>
+              <span class="grid place-items-center w-11 h-11 rounded-2xl bg-surface2 text-2xl shrink-0" aria-hidden="true">{a.emoji}</span>
+              <span class="font-[var(--font-display)] font-semibold text-ink leading-tight">{a.name}</span>
+              <span class="font-[var(--font-display)] font-semibold text-coraldeep">{a.price}</span>
+            </div>
+          ))}
+        </div>
+        <p class="mt-5 text-sm text-inksoft reveal">Add-on prices are representative and may vary by size &amp; coat.</p>
+      </div>
+    </div>
+  </div>
+</section>

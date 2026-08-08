@@ -71,6 +71,36 @@ export const services = [
   },
 ];
 
+// Representative size tiers for pricing — labeled clearly in the UI.
+export const sizeTiers = [
+  { name: "Small", ex: "Chihuahua, Yorkie, Pom", weight: "up to ~20 lb" },
+  { name: "Medium", ex: "Cocker, Beagle, Sheltie", weight: "~20–50 lb" },
+  { name: "Large", ex: "Lab, Golden, Aussie", weight: "~50–90 lb" },
+  { name: "X-Large", ex: "Samoyed, Shepherd, Doodle", weight: "90 lb+ / heavy coat" },
+];
+
+// Representative sample pricing by dog size — clearly labeled in the UI.
+// Order of prices matches sizeTiers above (Small, Medium, Large, X-Large).
+export const pricing = [
+  { service: "Bath & Brush", note: "Bath, blow-dry, brush-out, ears & nails", prices: ["$35", "$45", "$60", "$75"] },
+  { service: "Full Groom", note: "Bath + full haircut styled to your dog", prices: ["$55", "$70", "$90", "$110"], featured: true },
+  { service: "Breed-Specific Cut", note: "Cut to breed standard, hand-finished", prices: ["$60", "$75", "$95", "$120"] },
+  { service: "De-Shedding Treatment", note: "Deep de-shed bath + undercoat blow-out", prices: ["$45", "$60", "$75", "$95"] },
+  { service: "Puppy's First Groom", note: "Gentle intro visit, pups under 6 months", prices: ["$30", "$35", "$40", "$45"] },
+];
+
+// À la carte add-ons — representative sample pricing.
+export const addOns = [
+  { name: "Nail trim & file", price: "$15", emoji: "🐾" },
+  { name: "Teeth brushing", price: "$12", emoji: "🦷" },
+  { name: "Ear cleaning", price: "$10", emoji: "👂" },
+  { name: "Flea & tick bath", price: "$18", emoji: "🛁" },
+  { name: "De-shed upgrade", price: "$20", emoji: "🧴" },
+  { name: "Sanitary trim", price: "$12", emoji: "✂️" },
+  { name: "Paw balm & pad trim", price: "$10", emoji: "🐾" },
+  { name: "Blueberry facial", price: "$8", emoji: "🫐" },
+];
+
 export const faqs = [
   {
     q: "How long does a grooming appointment take?",
@@ -91,6 +121,14 @@ export const faqs = [
   {
     q: "What about vaccinations?",
     a: "For the safety of every pup in the shop, please keep your dog current on their core vaccinations. Bring records for your first visit if you can.",
+  },
+  {
+    q: "What if my dog's coat is badly matted?",
+    a: "Matting is common and we handle it gently. Light mats we can usually brush out. For tight or pelted coats, humane de-matting has limits — never worth hurting your dog — so we may recommend a shorter, comfortable cut instead. We'll always talk it through with you first and never pull on the skin.",
+  },
+  {
+    q: "How should I prepare for the first visit?",
+    a: "Bring vaccination records, let your dog have a good potty break beforehand, and tell us about any anxiety, health needs or the look you love. A quick walk before drop-off helps nervous pups settle. That's it — we'll take it from there.",
   },
   {
     q: "How much will my groom cost?",
