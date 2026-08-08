@@ -1,0 +1,41 @@
+---
+import { site } from "../data/site";
+const reviews = [
+  { q: "My dog usually hates the groomer, but he trots right in here. They're so patient and gentle with him — he comes home happy every time.", who: "A longtime HB dog parent", pup: "Golden Retriever" },
+  { q: "Twenty years in the neighborhood for a reason. Fair prices, kind people, and my little one always looks adorable when I pick her up.", who: "A local regular", pup: "Shih Tzu" },
+  { q: "They took such good care of our senior pup. No stress, no rushing, just genuine love for dogs. We won't go anywhere else.", who: "A Huntington Beach family", pup: "Cocker Spaniel" },
+  { q: "Booked a first groom for our puppy and they made it a great experience. She wasn't scared at all and smelled amazing after!", who: "A first-time client", pup: "Doodle" },
+];
+---
+<section id="reviews" class="relative py-20 md:py-28 grain overflow-hidden">
+  <div class="blob blob-sky floaty-slow" style="width:22rem;height:22rem;bottom:-6rem;left:-8rem;opacity:.24"></div>
+  <div class="wrap relative z-10">
+    <div class="max-w-2xl reveal">
+      <span class="eyebrow">Kind words</span>
+      <h2 class="mt-3 text-4xl md:text-5xl text-ink">Loved by Huntington Beach<br class="hidden md:block"/> dog parents</h2>
+      <p class="mt-4 text-inksoft text-lg">Two decades of tail wags, fresh coats and happy pickups.</p>
+    </div>
+
+    <div class="mt-12 grid gap-5 md:grid-cols-2">
+      {reviews.map((r, i) => (
+        <figure class="card p-7 reveal flex flex-col" data-delay={i * 80}>
+          <div class="text-sunny text-lg tracking-wide" aria-hidden="true">★★★★★</div>
+          <blockquote class="mt-3 text-ink text-lg leading-relaxed">“{r.q}”</blockquote>
+          <figcaption class="mt-5 flex items-center gap-3">
+            <span class="grid place-items-center w-11 h-11 rounded-full bg-surface2 text-xl" aria-hidden="true">🐾</span>
+            <span>
+              <span class="block font-semibold text-ink text-sm">{r.who}</span>
+              <span class="block text-xs text-inksoft">{r.pup}</span>
+            </span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+
+    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 reveal">
+      <a href={site.facebook} target="_blank" rel="noopener" class="btn btn-outline">Read real reviews on Facebook</a>
+      <a href="#book" class="btn btn-coral btn-shine">Book your pup</a>
+    </div>
+    <p class="mt-6 text-center text-xs text-inksoft reveal">Testimonials shown are illustrative samples for this preview. See the salon's Facebook page for verified customer reviews.</p>
+  </div>
+</section>

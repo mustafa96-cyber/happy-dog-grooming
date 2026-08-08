@@ -1,17 +1,33 @@
 ---
-
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import TrustStrip from "../components/TrustStrip.astro";
+import Services from "../components/Services.astro";
+import Gallery from "../components/Gallery.astro";
+import HowItWorks from "../components/HowItWorks.astro";
+import WhyUs from "../components/WhyUs.astro";
+import Reviews from "../components/Reviews.astro";
+import FAQ from "../components/FAQ.astro";
+import Book from "../components/Book.astro";
+import Location from "../components/Location.astro";
+import Footer from "../components/Footer.astro";
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <Header />
+  <main>
+    <Hero />
+    <TrustStrip />
+    <Services />
+    <Gallery />
+    <HowItWorks />
+    <WhyUs />
+    <Reviews />
+    <FAQ />
+    <Book />
+    <Location />
+  </main>
+  <Footer />
+  <!-- spacer so the sticky mobile bar never covers content -->
+  <div class="h-20 md:hidden" aria-hidden="true"></div>
+</Layout>

@@ -1,0 +1,47 @@
+---
+const points = [
+  { t: "Gentle, patient handling", d: "Two decades of calm experience with nervous, senior and first-time pups. We never rush.", icon: `<path d="M12 21s-7-4.4-9.3-8.5C1 9.5 2.4 6 5.8 6 8 6 9.3 7.5 12 10c2.7-2.5 4-4 6.2-4 3.4 0 4.8 3.5 3.1 6.5C19 16.6 12 21 12 21Z"/>`, fill: true },
+  { t: "One-on-one attention", d: "Your dog is a guest, not a number. We keep the shop calm and give each pup real focus.", icon: `<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/>`, fill: false },
+  { t: "Clean, safe & careful", d: "Sanitized tools, gentle products and a careful eye for skin, ears, nails and coat health.", icon: `<path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3Z"/><path d="M9 12l2 2 4-4"/>`, fill: false },
+  { t: "Styled to your standard", d: "Breed-standard cuts or your favorite look — hand-finished and double-checked before pickup.", icon: `<circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.12 15.88M14.47 14.48 20 20M8.12 8.12 12 12"/>`, fill: false },
+];
+---
+<section id="why" class="relative py-20 md:py-28 overflow-hidden bg-surface2/60 grain">
+  <div class="wrap relative z-10">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <!-- image side -->
+      <div class="relative reveal order-1">
+        <div class="blob blob-coral floaty" style="width:16rem;height:16rem;top:-3rem;left:-3rem;opacity:.3"></div>
+        <img src="/images/wash.jpg" alt="A groomer gently bathing a happy golden retriever" loading="lazy" width="900" height="675" class="relative z-10 w-full h-[360px] md:h-[460px] object-cover blobby shadow-2xl" style="border:6px solid var(--surface)" />
+        <!-- floating care badge -->
+        <div class="absolute z-20 -bottom-5 right-4 md:right-8 card !rounded-2xl px-5 py-4 flex items-center gap-3 floaty-slow">
+          <span class="text-3xl" aria-hidden="true">💛</span>
+          <div>
+            <div class="font-[var(--font-display)] font-semibold text-ink leading-none">Treated like family</div>
+            <p class="text-xs text-inksoft mt-1">Comfort first, every visit</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- content side -->
+      <div class="order-2">
+        <div class="reveal">
+          <span class="eyebrow">Why Happy Dog</span>
+          <h2 class="mt-3 text-4xl md:text-5xl text-ink">Your dog's comfort<br class="hidden md:block"/> comes first</h2>
+          <p class="mt-4 text-inksoft text-lg">For over 20 years, Huntington Beach families have trusted us with their best friends. Here's the care behind every groom.</p>
+        </div>
+        <div class="mt-8 grid sm:grid-cols-2 gap-4">
+          {points.map((p, i) => (
+            <div class="card p-5 reveal" data-delay={i * 80}>
+              <span class="grid place-items-center w-11 h-11 rounded-xl bg-surface2 text-skydeep" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill={p.fill ? "currentColor" : "none"} stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={p.icon} />
+              </span>
+              <h3 class="mt-4 text-lg text-ink">{p.t}</h3>
+              <p class="mt-1.5 text-sm text-inksoft leading-relaxed">{p.d}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

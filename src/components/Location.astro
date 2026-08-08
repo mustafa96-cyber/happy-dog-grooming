@@ -1,0 +1,74 @@
+---
+import { site, hours } from "../data/site";
+const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(site.mapsQuery)}&output=embed`;
+const dirHref = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(site.mapsQuery)}`;
+---
+<section id="visit" class="relative py-20 md:py-28 overflow-hidden bg-surface2/60 grain">
+  <div class="wrap relative z-10">
+    <div class="max-w-2xl reveal">
+      <span class="eyebrow">Come say hi</span>
+      <h2 class="mt-3 text-4xl md:text-5xl text-ink">Visit our salon<br class="hidden md:block"/> in Huntington Beach</h2>
+    </div>
+
+    <div class="mt-10 grid lg:grid-cols-5 gap-6 items-stretch">
+      <!-- info -->
+      <div class="lg:col-span-2 flex flex-col gap-5">
+        <div class="card p-6 reveal">
+          <div class="flex items-start gap-3">
+            <span class="grid place-items-center w-11 h-11 rounded-xl bg-surface2 text-skydeep shrink-0" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            <div>
+              <h3 class="text-lg text-ink">Address</h3>
+              <p class="mt-1 text-inksoft">{site.addressLine}<br/>{site.city}, {site.state} {site.zip}</p>
+              <a href={dirHref} target="_blank" rel="noopener" class="link-underline inline-block mt-2 text-sm">Get directions →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card p-6 reveal" data-delay="80">
+          <div class="flex items-start gap-3">
+            <span class="grid place-items-center w-11 h-11 rounded-xl bg-surface2 text-skydeep shrink-0" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            </span>
+            <div class="flex-1">
+              <h3 class="text-lg text-ink">Hours</h3>
+              <dl class="mt-2 space-y-1.5 text-sm">
+                {hours.map((h) => (
+                  <div class="flex items-center justify-between gap-4">
+                    <dt class="text-inksoft">{h.d}</dt>
+                    <dd class="font-semibold text-ink">{h.h}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </div>
+        </div>
+
+        <div class="card p-6 reveal" data-delay="160">
+          <div class="flex items-center gap-3">
+            <span class="grid place-items-center w-11 h-11 rounded-xl bg-sunny text-[#24363F] shrink-0" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </span>
+            <div class="flex-1">
+              <h3 class="text-lg text-ink leading-tight">Call to book</h3>
+              <a href={site.phoneHref} class="font-[var(--font-display)] font-semibold text-xl text-skydeep">{site.phone}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- map -->
+      <div class="lg:col-span-3 reveal" data-delay="80">
+        <div class="card overflow-hidden h-[340px] lg:h-full min-h-[340px]">
+          <iframe
+            title={`Map to ${site.name}`}
+            src={mapSrc}
+            width="100%" height="100%" style="border:0; display:block; min-height:340px;"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
